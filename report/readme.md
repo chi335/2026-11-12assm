@@ -397,6 +397,7 @@ $$\text{최대 비교 횟수} = \lfloor \log_2 N \rfloor + 1$$
 교재 9.5절의 `BinarySearch` 프로시저 코드 동작 방식은 다음과 같습니다.
 
 1. **원래 코드 구조**
+```assembly
     cmp  ebx, [esi + edi*4]   ; target과 array[mid] 비교
     jge  L2                   ; target >= array[mid] 이면 L2로 이동
     
@@ -413,6 +414,7 @@ L2: jne  L3                   ; target > array[mid] 이면 L3로 이동
 L3: inc  edi                  ; first = mid + 1
     mov  first, edi
     jmp  L4
+```
 
 2. **문장 제거가 가능한 이유**
    * 두 값의 비교 결과는 **`미만(<)`, `초과(>)`, `일치(=)`**의 3가지 경우만 존재합니다.
